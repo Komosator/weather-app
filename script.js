@@ -43,7 +43,7 @@ const geoCoding = () => {
 			console.log(URL);
 			getWeather(URL, town);
 		})
-		.catch(() => (warning.textContent = 'Wpisz poprawną nazwę miasta!'));
+		.catch(() => (warning.textContent = 'Enter a valid city name!'));
 };
 
 const getWeather = (apiUrl, town) => {
@@ -85,7 +85,7 @@ const getWeather = (apiUrl, town) => {
 				photo.setAttribute('src', './img/unknown.png');
 			}
 		})
-		.catch(() => (warning.textContent = 'Wpisz poprawną nazwę miasta!'));
+		.catch(() => (warning.textContent = 'Enter a valid city name!'));
 };
 
 const checkByClickingEnter = (e) => {
