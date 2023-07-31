@@ -14,35 +14,37 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;700&display=swap" rel="stylesheet">
     <script src="https://kit.fontawesome.com/cee722089b.js" crossorigin="anonymous"></script>
-    <link rel="stylesheet" href="./style.css">
+    <link rel="stylesheet" href="./css/main.css">
 </head>
 
 <body>
     <div class="wrapper">
-        <div class="top">
+        <main class="main">
             <h1>weather app</h1>
-            <div class="main-info">
-                <div>
-                    <h3 class="city-name"></h3>
-                    <input type="text" placeholder="Enter city name"> <button class="btn">Check</button>
-                    <p class="warning"></p>
+            <section class="top">
+                <div class="main-info">
+                    <div>
+                        <h3 class="city-name">Location:</h3>
+                        <div class="search">
+                            <input type="text" placeholder="Enter city name">
+                            <button class="btn">Check</button>
+                            <img src="./images/weather-forecast.png" alt="Picture showing the weather condition." class="photo">
+                        </div>
+                        <p class="warning"></p>
+                    </div>
                 </div>
-                <img src="./images/weather-forecast.png" alt="Picture showing the weather condition." class="photo">
-            </div>
-        </div>
-        <div class="bottom">
-            <div class="headings">
-                <p>Weather:</p>
-                <p>Temperature:</p>
-                <p>Humidity:</p>
-            </div>
-            <div class="weather-info">
-                <p class="weather"></p>
-                <p class="temperature"></p>
-                <!-- <p class="pressure"></p> -->
-                <p class="humidity"></p>
-            </div>
-        </div>
+            </section>
+            <section class="bottom">
+                <div class="headings">
+                    <p>Weather: <span class="weather"></span></p>
+                    <p>Temperature: <span class="temperature"></span></p>
+                    <p>Pressure: <span class="pressure"></span></p>
+                    <p>Humidity: <span class="humidity"></span></p>
+                    <p>Wind speed: <span class="wind-speed"></span></p>
+                    <p>Wind direction: <span class="wind-direction"></span></p>
+                </div>
+            </section>
+        </main>
     </div>
 
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
