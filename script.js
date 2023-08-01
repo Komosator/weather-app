@@ -5,37 +5,29 @@ const warning = document.querySelector('.warning');
 const photo = document.querySelector('.photo');
 const weather = document.querySelector('.weather');
 const temperature = document.querySelector('.temperature');
-const pressure = document.querySelector('.pressure');
 const humidity = document.querySelector('.humidity');
-const windSpeed = document.querySelector('.wind-speed');
-const windDirection = document.querySelector('.wind-direction');
 
 const API_LINK = 'https://api.openweathermap.org/data/2.5/weather?';
 const API_LATTITUDE = 'lat=';
 const API_LONGITUDE = '&lon=';
-const API_KEY = '&appid=afee985ba293e5106d1e6ef70ecd3062';
 const API_UNITS = '&units=metric';
-
-// http://api.openweathermap.org/geo/1.0/direct?q=London&limit=5&appid={API key}
 const API_GEO_LINK = 'http://api.openweathermap.org/geo/1.0/direct?q=';
 const API_GEO_LIMIT = '&limit=1';
 
-const getWeather = () => {
-	// const city = input.value || 'Warsaw';
-	const city = input.value;
-	const GEO_URL = API_GEO_LINK + city + API_GEO_LIMIT + API_KEY;
+import { API_KEY as apiKey } from './api_key.js';
 
-	// Get geolocation values: lattitude, longitude, standardized city name
+const geoCoding = () => {
+	const city = input.value;
+	const GEO_URL = API_GEO_LINK + city + API_GEO_LIMIT + apiKey;
 	axios
 		.get(GEO_URL)
 		.then((res) => {
-			// console.log(res);
 			warning.textContent = '';
-			// console.log(res.data);
+			console.log(res.data);
 			const town = res.data[0].name;
 			const lon = res.data[0].lon;
 			const lat = res.data[0].lat;
-			// console.log(`#2 lattitude: ${lat}, longitude: ${lon}.`);
+			console.log(`#2 lattitude: ${lat}, longitude: ${lon}.`);
 			//https://api.openweathermap.org/data/2.5/weather?lat={lat}&lon={lon}&appid={API key}
 			const URL =
 				API_LINK +
@@ -43,16 +35,15 @@ const getWeather = () => {
 				lat +
 				API_LONGITUDE +
 				lon +
-				API_KEY +
+				apiKey +
 				API_UNITS;
 			// console.log(URL);
-			// Check the by coordinates
-			checkCurrentWeather(URL, town);
+			getWeather(URL, town);
 		})
-		.catch(() => (warning.textContent = 'Enter a valid city name!'));
+		.catch(() => (warning.textContent = 'Enter a valid location name!'));
 };
 
-const checkCurrentWeather = (apiUrl, town) => {
+const getWeather = (apiUrl, town) => {
 	axios
 		.get(apiUrl)
 		.then((res) => {
@@ -60,24 +51,18 @@ const checkCurrentWeather = (apiUrl, town) => {
 			warning.textContent = '';
 			const temp = Math.floor(res.data.main.temp) + '℃';
 			const hum = Math.floor(res.data.main.humidity) + '%';
-			const pres = res.data.main.pressure + 'hPa';
 			const status = res.data.weather[0].main;
 			const statusId = res.data.weather[0].id;
-			const wSpeed = Math.floor(res.data.wind.speed) + 'km/h';
-			const wDeg = res.data.wind.deg + '°';
 
-			// console.log(`temperature: ${temp}`);
-			// console.log(`humidity: ${hum}`);
+			console.log(`temperature: ${temp}`);
+			console.log(`humidity: ${hum}`);
 			console.log(res.data.weather[0]);
-			// console.log(`Status: ${status}`);
+			console.log(`Status: ${status}`);
 
 			temperature.textContent = temp;
-			pressure.textContent = pres;
 			humidity.textContent = hum;
-			cityName.textContent = `Location: ${town}`;
+			cityName.textContent = town;
 			weather.textContent = status;
-			windSpeed.textContent = wSpeed;
-			windDirection.textContent = wDeg;
 
 			if (statusId >= 200 && statusId < 300) {
 				photo.setAttribute('src', './images/thunderstorm.png');
@@ -88,7 +73,7 @@ const checkCurrentWeather = (apiUrl, town) => {
 			} else if (statusId >= 600 && statusId < 700) {
 				photo.setAttribute('src', './images/snowflake.png');
 			} else if (statusId >= 700 && statusId < 800) {
-				photo.setAttribute('src', './imgages/fog.png');
+				photo.setAttribute('src', './images/fog.png');
 			} else if (statusId == 800) {
 				photo.setAttribute('src', './images/sun.png');
 			} else if (statusId > 800 && statusId < 900) {
@@ -97,14 +82,14 @@ const checkCurrentWeather = (apiUrl, town) => {
 				photo.setAttribute('src', './images/unknown.png');
 			}
 		})
-		.catch(() => (warning.textContent = 'Enter a valid city name!'));
+		.catch(() => (warning.textContent = 'Enter a valid location name!'));
 };
 
 const checkByClickingEnter = (e) => {
 	if (e.key === 'Enter') {
-		getWeather();
+		geoCoding();
 	}
 };
 
-button.addEventListener('click', getWeather);
+button.addEventListener('click', geoCoding);
 input.addEventListener('keyup', checkByClickingEnter);
