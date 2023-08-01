@@ -6,6 +6,9 @@ const photo = document.querySelector('.photo');
 const weather = document.querySelector('.weather');
 const temperature = document.querySelector('.temperature');
 const humidity = document.querySelector('.humidity');
+const pressure = document.querySelector('.pressure');
+const windSpeed = document.querySelector('.wind-speed');
+const windDirection = document.querySelector('.wind-direction');
 
 const API_LINK = 'https://api.openweathermap.org/data/2.5/weather?';
 const API_LATTITUDE = 'lat=';
@@ -49,20 +52,22 @@ const getWeather = (apiUrl, town) => {
 		.then((res) => {
 			console.log(res.data);
 			warning.textContent = '';
-			const temp = Math.floor(res.data.main.temp) + '℃';
-			const hum = Math.floor(res.data.main.humidity) + '%';
+			const temp = Math.round(res.data.main.temp) + ' [℃]';
+			const hum = Math.round(res.data.main.humidity) + ' [%]';
+			const pres = Math.round(res.data.main.humidity) + ' [hPa]';
+			const wSpeed = Math.round(res.data.wind.speed) + ' [km/h]';
+			const wDir = Math.round(res.data.wind.deg) + ' [°]';
 			const status = res.data.weather[0].main;
 			const statusId = res.data.weather[0].id;
-
-			console.log(`temperature: ${temp}`);
-			console.log(`humidity: ${hum}`);
-			console.log(res.data.weather[0]);
-			console.log(`Status: ${status}`);
-
-			temperature.textContent = temp;
-			humidity.textContent = hum;
+			
 			cityName.textContent = town;
 			weather.textContent = status;
+			temperature.textContent = temp;
+			pressure.textContent = pres;
+			humidity.textContent = hum;
+			windSpeed.textContent = wSpeed;
+			windDirection.textContent = wDir;
+			
 
 			if (statusId >= 200 && statusId < 300) {
 				photo.setAttribute('src', './images/thunderstorm.png');
