@@ -1,14 +1,16 @@
-const input = document.querySelector('input');
-const button = document.querySelector('.btn');
-const cityName = document.querySelector('.city-name');
-const warning = document.querySelector('.warning');
-const photo = document.querySelector('.photo');
-const weather = document.querySelector('.weather');
-const temperature = document.querySelector('.temperature');
-const humidity = document.querySelector('.humidity');
-const pressure = document.querySelector('.pressure');
-const windSpeed = document.querySelector('.wind-speed');
-const windDirection = document.querySelector('.wind-direction');
+const input = document.querySelector('.search--text');
+const button = document.querySelector('.search--btn');
+const cityName = document.querySelector('.search-city-name');
+const warning = document.querySelector('.search--warning');
+const photo = document.querySelector('.info--photo');
+const weather = document.querySelector('.info-details--weather');
+const temperature = document.querySelector('.info-details--temperature');
+const humidity = document.querySelector('.info-details--humidity');
+const pressure = document.querySelector('.info-details--pressure');
+const windSpeed = document.querySelector('.info-details--wind-speed');
+const windDirection = document.querySelector('.info-details--wind-direction');
+const windArrow = document.querySelector('.info-wind-depiction--arrow');
+const footerYear = document.querySelector('.footer__year');
 
 const API_LINK = 'https://api.openweathermap.org/data/2.5/weather?';
 const API_LATTITUDE = 'lat=';
@@ -52,6 +54,7 @@ const getWeather = (apiUrl, town) => {
 		.then((res) => {
 			console.log(res.data);
 			warning.textContent = '';
+
 			const temp = Math.round(res.data.main.temp) + ' [℃]';
 			const hum = Math.round(res.data.main.humidity) + ' [%]';
 			const pres = Math.round(res.data.main.humidity) + ' [hPa]';
@@ -59,7 +62,9 @@ const getWeather = (apiUrl, town) => {
 			const wDir = Math.round(res.data.wind.deg) + ' [°]';
 			const status = res.data.weather[0].main;
 			const statusId = res.data.weather[0].id;
-			
+			const windDirectionArrow = Math.round(res.data.wind.deg) + 'deg';
+			let arrowDir = `translate(-50%, -50%) rotate(${windDirectionArrow})`;
+
 			cityName.textContent = town;
 			weather.textContent = status;
 			temperature.textContent = temp;
@@ -67,7 +72,7 @@ const getWeather = (apiUrl, town) => {
 			humidity.textContent = hum;
 			windSpeed.textContent = wSpeed;
 			windDirection.textContent = wDir;
-			
+			windArrow.style.transform = arrowDir;
 
 			if (statusId >= 200 && statusId < 300) {
 				photo.setAttribute('src', './images/thunderstorm.png');
@@ -96,5 +101,28 @@ const checkByClickingEnter = (e) => {
 	}
 };
 
+// const showWindSection = () => {};
+
+const windAnimation = (deg) => {
+	let windDeviationOne = 0;
+	let windDeviationTwo = 1;
+	windArrow.animate(
+		[
+			{ transform: 'translate(-50%, -50%) rotate(95deg)' },
+			{ transform: 'translateY(-300px)' },
+		],
+		{
+			duration: 2000,
+			iterations: Infinity,
+		}
+	);
+};
+
+const showCurrentYear = () => {
+	const currentYear = new Date().getFullYear();
+	footerYear.textContent = currentYear;
+};
+
+showCurrentYear();
 button.addEventListener('click', geoCoding);
 input.addEventListener('keyup', checkByClickingEnter);

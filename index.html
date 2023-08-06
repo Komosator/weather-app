@@ -9,43 +9,66 @@
     <meta name="description" content="Application to check the current weather anywhere on Earth. 
     Based on OpenWeatherMap.org API's">
     <meta name="keywords" content="Weather, Weather info, check weather, Geocoding">
-    <title>WeatherApp by JK</title>
+    <title>Current WeatherApp by JK</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;700&display=swap" rel="stylesheet">
-    <script src="https://kit.fontawesome.com/cee722089b.js" crossorigin="anonymous"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="./css/main.css">
 </head>
 
 <body>
     <div class="wrapper">
         <main class="main">
-            <h1>Current weather</h1>
-            <section class="top">
-                <div class="main-info">
-                    <div>
-                        <h3 class="city-name">Location:</h3>
-                        <div class="search">
-                            <input type="text" placeholder="Enter city name">
-                            <button class="btn">Check</button>
-                            <img src="./images/weather-forecast.png" alt="Picture showing the weather condition." class="photo">
+            <h1 class="header header-main">current weather</h1>
+            <section class="search">
+
+
+                <p class="search-city-name">Location...</p>
+                <input type="text" class="search--text" placeholder="Enter city name">
+                <button class="search--btn">Check</button>
+                <p class="search--warning"></p>
+            </section>
+
+            <section class="info">
+                <img src="./images/weather-forecast.png" alt="Picture showing the weather condition."
+                    class="info--photo">
+                <div class="info-details">
+                    <h2 class="header header-info">detailed information</h2>
+                    <p>Description: <span class="info-details--weather"></span></p>
+                    <p>Temperature: <span class="info-details--temperature"></span></p>
+                    <p>Pressure: <span class="info-details--pressure"></span></p>
+                    <p>Humidity: <span class="info-details--humidity"></span></p>
+                    <p>Wind speed: <span class="info-details--wind-speed"></span></p>
+                    <p>Wind direction: <span class="info-details--wind-direction"></span></p>
+
+                    <div class="info-wind-depiction">
+                        <div class="info-wind-depiction--bcg">
+                            <div class="info-wind-depiction--bcg__north">
+                                <p>N</p>
+                            </div>
+                            <div class="info-wind-depiction--bcg__east">
+                                <p>E</p>
+                            </div>
+                            <div class="info-wind-depiction--bcg__south">
+                                <p>S</p>
+                            </div>
+                            <div class="info-wind-depiction--bcg__west">
+                                <p>W</p>
+                            </div>
+                            <div class="info-wind-depiction--arrow"><img src="/images/arrow-big-down-lines.png"
+                                    alt="abc">
+                            </div>
                         </div>
-                        <p class="warning"></p>
+
                     </div>
                 </div>
             </section>
-            <section class="bottom">
-                <div class="headings">
-                    <p>Weather: <span class="weather"></span></p>
-                    <p>Temperature: <span class="temperature"></span></p>
-                    <p>Pressure: <span class="pressure"></span></p>
-                    <p>Humidity: <span class="humidity"></span></p>
-                    <p>Wind speed: <span class="wind-speed"></span></p>
-                    <p>Wind direction: <span class="wind-direction"></span></p>
-                </div>
-            </section>
+
         </main>
     </div>
+    <footer>
+        <p class="footer"> &copy; <span class="footer__year"></span> Current Weather </p>
+    </footer>
 
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
     <script type="module" src="./script.js"></script>
