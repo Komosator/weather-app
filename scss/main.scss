@@ -101,7 +101,6 @@ body {
 }
 
 .info {
-	background-color: tomato;
 	display: flex;
 	flex-direction: column;
 	justify-content: center;
@@ -127,7 +126,6 @@ body {
 }
 
 .wind-depiction {
-	background-color: yellow;
 	position: relative;
 	display: flex;
 	flex-direction: column;
@@ -140,7 +138,6 @@ body {
 	font-size: 2.2em;
 
 	&--bcg {
-		background-color: blue;
 		position: relative;
 		height: 250px;
 		width: 250px;
@@ -174,12 +171,11 @@ body {
 		top: 50%;
 		left: 50%;
 		transform: translate(-50%, -50%) rotate(0deg);
-		zoom: 70%;
+		width: 40%;
 	}
 }
 
 .footer {
-	background-color: lime;
 	margin-top: 20px;
 	color: c.$addons;
 	text-align: center;

@@ -25,13 +25,13 @@
                 <p class="search-city-name">Location...</p>
                 <input type="text" class="search--text" placeholder="Enter city name">
                 <button class="search--btn">Check</button>
-                <p class="search--warning">warning message</p>
+                <p class="search--warning"></p>
             </section>
 
             <section class="info">
                 <img src="./images/weather-forecast.png" alt="Picture showing the weather condition."
                     class="info--photo">
-                <div class="info-details">
+                <div class="info-details hidden">
                     <h2 class="header header-info">detailed information</h2>
                     <p>Description: <span class="info-details--weather"></span></p>
                     <p>Temperature: <span class="info-details--temperature"></span></p>
@@ -42,7 +42,7 @@
                 </div>
             </section>
 
-            <section class="wind-depiction">
+            <section class="wind-depiction hidden">
                 <div class="wind-depiction--bcg">
                     <div class="wind-depiction--bcg__north">
                         <p>N</p>
@@ -57,9 +57,8 @@
                         <p>W</p>
                     </div>
                 </div>
-                <div class="wind-depiction--arrow hidden"><img src="/images/arrow-big-down-lines.png"
-                        alt="Arrow with wind direction.">
-                </div>
+                <img class="wind-depiction--arrow" src="/images/arrow-big-down-lines.png"
+                    alt="Arrow with wind direction.">
             </section>
         </main>
         <footer>
