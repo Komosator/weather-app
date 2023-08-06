@@ -8,10 +8,10 @@ const weather = document.querySelector('.info-details--weather');
 const temperature = document.querySelector('.info-details--temperature');
 const humidity = document.querySelector('.info-details--humidity');
 const pressure = document.querySelector('.info-details--pressure');
-const windDepiction = document.querySelector('.info-wind-depiction');
+const windDepiction = document.querySelector('.wind-depiction');
 const windSpeed = document.querySelector('.info-details--wind-speed');
 const windDirection = document.querySelector('.info-details--wind-direction');
-const windArrow = document.querySelector('.info-wind-depiction--arrow');
+const windArrow = document.querySelector('.wind-depiction--arrow');
 const windDeviationInterval = 5;
 const footerYear = document.querySelector('.footer__year');
 

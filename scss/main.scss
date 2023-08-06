@@ -13,25 +13,25 @@ html {
 }
 
 body {
-	min-height: 100%;
-	font-family: 'Nunito', sans-serif;
-	font-size: 1.6rem;
 	color: c.$secondary;
 	background-color: c.$background-darker;
+	font-family: 'Nunito', sans-serif;
+	font-size: 1.6rem;
 }
 
 .wrapper {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	flex-wrap: nowrap;
 	margin: 0px auto;
-	width: 100%;
-	max-width: 800px;
+	width: clamp(100%, 100%, 800px);
 }
 
 .main {
 	display: flex;
 	flex-direction: column;
-	justify-content: space-between;
 	align-items: center;
-	height: 80%;
 }
 
 .header {
@@ -47,26 +47,26 @@ body {
 }
 
 .search {
-	height: 200px;
-	margin: 0.3em;
-	padding: 1em 1em;
 	display: flex;
 	flex-direction: column;
 	justify-content: space-around;
+	margin: 20px;
+	padding: 1em 1em;
 	align-items: center;
 
 	&--text {
-		width: 80%;
+		margin-top: 10px;
 		padding: 0.3em;
+		width: 80%;
 		border: none;
 		border-radius: 5px;
 		outline: none;
+		color: c.$primary;
+		background-color: c.$secondary;
 		font-size: 2rem;
 		font-weight: bold;
 		text-transform: uppercase;
 		text-align: center;
-		color: c.$primary;
-		background-color: c.$secondary;
 
 		&::placeholder {
 			text-transform: none;
@@ -76,103 +76,114 @@ body {
 	}
 
 	&--btn {
+		margin-top: 10px;
 		padding: 10px 20px;
+		color: c.$secondary;
+		background-color: c.$primary;
 		border: 2px solid c.$addons;
 		border-radius: 5px;
-		background-color: c.$primary;
-		color: c.$secondary;
 		text-transform: uppercase;
 		font-weight: bold;
 		transition: color u.$transition-duration,
 			background-color u.$transition-duration, border u.$transition-duration;
 		cursor: pointer;
 		&:hover {
-			background-color: c.$secondary;
 			color: c.$primary;
+			background-color: c.$secondary;
 			border: 2px solid transparent;
 		}
 	}
 
 	&--warning {
+		margin-top: 10px;
 		color: c.$error;
 	}
 }
 
 .info {
+	background-color: tomato;
 	display: flex;
 	flex-direction: column;
 	justify-content: center;
 	align-items: center;
 	width: 300px;
-	height: 100%
+
 	&--photo {
-		width: 150px;
-		align-self: center;
 		margin-bottom: 20px;
+		align-self: center;
+		width: 150px;
 	}
+
 	&-details {
 		display: block;
-		font-weight: bold;
 		color: c.$secondary;
+		font-weight: bold;
 	}
 
 	& span {
-		font-weight: normal;
 		color: c.$addons;
+		font-weight: normal;
 	}
+}
 
-	&-wind-depiction {
-		display: block;
-		margin-top: 40px;
-		margin-left: 10px;
+.wind-depiction {
+	background-color: yellow;
+	position: relative;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	margin-top: 20px;
+	height: 300px;
+	width: 300px;
+	color: c.$addons;
+	font-size: 2.2em;
+
+	&--bcg {
+		background-color: blue;
 		position: relative;
 		height: 250px;
 		width: 250px;
-		&--bcg {
-			color: c.$addons;
-			font-size: 2.2em;
-
-			&__north {
-				position: absolute;
-				top: 0%;
-				left: 50%;
-				transform: translate(-50%, -50%);
-			}
-			&__east {
-				position: absolute;
-				top: 50%;
-				left: 100%;
-				transform: translate(-50%, -50%);
-			}
-			&__south {
-				position: absolute;
-				top: 100%;
-				left: 50%;
-				transform: translate(-50%, -50%);
-			}
-			&__west {
-				position: absolute;
-				top: 50%;
-				left: 0%;
-				transform: translate(-50%, -50%);
-			}
+		&__north {
+			position: absolute;
+			top: 0%;
+			left: 50%;
+			transform: translateX(-50%);
 		}
-		&--arrow {
+		&__east {
 			position: absolute;
 			top: 50%;
-			left: 50%;
-			transform: translate(-50%, -50%) rotate(0deg);
-			zoom: 70%;
-			z-index: 10;
+			right: 0%;
+			transform: translateY(-50%);
 		}
+		&__south {
+			position: absolute;
+			bottom: 0%;
+			left: 50%;
+			transform: translateX(-50%);
+		}
+		&__west {
+			position: absolute;
+			top: 50%;
+			left: 0%;
+			transform: translateY(-50%);
+		}
+	}
+	&--arrow {
+		position: absolute;
+		top: 50%;
+		left: 50%;
+		transform: translate(-50%, -50%) rotate(0deg);
+		zoom: 70%;
 	}
 }
 
 .footer {
-	height: 100%;
-	margin-top: 40px;
-	text-align: center;
+	background-color: lime;
+	margin-top: 20px;
 	color: c.$addons;
+	text-align: center;
+	line-height: 40px;
 }
 
 .hidden {
