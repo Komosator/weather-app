@@ -13,7 +13,7 @@ html {
 }
 
 body {
-	height: 100%;
+	min-height: 100%;
 	font-family: 'Nunito', sans-serif;
 	font-size: 1.6rem;
 	color: c.$secondary;
@@ -21,7 +21,7 @@ body {
 }
 
 .wrapper {
-	margin: 0 auto;
+	margin: 0px auto;
 	width: 100%;
 	max-width: 800px;
 }
@@ -103,7 +103,6 @@ body {
 	justify-content: center;
 	align-items: center;
 	width: 300px;
-
 	&--photo {
 		width: 150px;
 		align-self: center;
@@ -123,12 +122,15 @@ body {
 	&-wind-depiction {
 		display: block;
 		margin-top: 40px;
+		margin-left: 10px;
 		position: relative;
 		height: 250px;
 		width: 250px;
+		background-color: blue;
 		&--bcg {
 			color: c.$addons;
 			font-size: 2.2em;
+
 			&__north {
 				position: absolute;
 				top: 0%;
@@ -166,30 +168,12 @@ body {
 }
 
 .footer {
-	margin: 40px 0 40px 0;
+	height: 100%;
+	margin-top: 40px;
 	text-align: center;
 	color: c.$addons;
 }
 
 .hidden {
 	display: none;
-}
-
-.animate {
-	animation: shake 2s linear infinite;
-}
-
-@keyframes shake {
-	0% {
-		transform: translate(-50%, -50%) rotate(90deg);
-	}
-	30% {
-		transform: translate(-50%, -50%) rotate(95deg);
-	}
-	70% {
-		transform: translate(-50%, -50%) rotate(85deg);
-	}
-	100% {
-		transform: translate(-50%, -50%) rotate(90deg);
-	}
 }
