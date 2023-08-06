@@ -18,7 +18,7 @@ body {
 }
 
 .wrapper {
-  margin: 0 auto;
+  margin: 0px auto;
   width: 100%;
   max-width: 800px;
 }
@@ -28,6 +28,7 @@ body {
   flex-direction: column;
   justify-content: space-between;
   align-items: center;
+  height: 80%;
 }
 
 .header {
@@ -100,11 +101,10 @@ body {
   justify-content: center;
   align-items: center;
   width: 300px;
-}
-.info--photo {
-  width: 150px;
-  align-self: center;
-  margin-bottom: 20px;
+  height: 100% .info --photo;
+  height-width: 150px;
+  height-align-self: center;
+  height-margin-bottom: 20px;
 }
 .info-details {
   display: block;
@@ -118,6 +118,7 @@ body {
 .info-wind-depiction {
   display: block;
   margin-top: 40px;
+  margin-left: 10px;
   position: relative;
   height: 250px;
   width: 250px;
@@ -160,30 +161,12 @@ body {
 }
 
 .footer {
-  margin: 40px 0 40px 0;
+  height: 100%;
+  margin-top: 40px;
   text-align: center;
   color: #B8621B;
 }
 
 .hidden {
   display: none;
-}
-
-.animate {
-  animation: shake 2s linear infinite;
-}
-
-@keyframes shake {
-  0% {
-    transform: translate(-50%, -50%) rotate(90deg);
-  }
-  30% {
-    transform: translate(-50%, -50%) rotate(95deg);
-  }
-  70% {
-    transform: translate(-50%, -50%) rotate(85deg);
-  }
-  100% {
-    transform: translate(-50%, -50%) rotate(90deg);
-  }
 }/*# sourceMappingURL=main.css.map */

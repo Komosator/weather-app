@@ -99,7 +99,7 @@ const getWeather = (apiUrl, town) => {
 		.catch(
 			() =>
 				(warning.textContent =
-					'Something went wrong, please report the problem to us!')
+					'Something went wrong, please let me know about the problem!')
 		);
 };
 
