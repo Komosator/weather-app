@@ -91,7 +91,7 @@ body {
   border: 2px solid transparent;
 }
 .search--warning {
-  color: #E02401;
+  color: tomato;
 }
 
 .info {
