@@ -10,7 +10,7 @@ html {
 }
 
 body {
-  height: 100vh;
+  height: 100%;
   font-family: "Nunito", sans-serif;
   font-size: 1.6rem;
   color: #E3CCAE;
@@ -160,12 +160,12 @@ body {
 }
 
 .footer {
-  margin-top: 40px;
+  margin: 40px 0 40px 0;
   text-align: center;
   color: #B8621B;
 }
 
-.hide {
+.hidden {
   display: none;
 }
 

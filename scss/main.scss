@@ -13,7 +13,7 @@ html {
 }
 
 body {
-	height: 100vh;
+	height: 100%;
 	font-family: 'Nunito', sans-serif;
 	font-size: 1.6rem;
 	color: c.$secondary;
@@ -166,12 +166,12 @@ body {
 }
 
 .footer {
-	margin-top: 40px;
+	margin: 40px 0 40px 0;
 	text-align: center;
 	color: c.$addons;
 }
 
-.hide {
+.hidden {
 	display: none;
 }
 
