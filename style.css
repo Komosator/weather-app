@@ -1,0 +1,98 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    font-family: 'Montserrat', sans-serif;
+    background-color: #29303B;
+}
+
+.wrapper {
+    padding: 50px;
+    width: 800px;
+    background-image: linear-gradient(#3F4B59, #333D46);
+    color: #fff;
+    text-align: center;
+    border: 1px solid #1C232D;
+    border-radius: 15px;
+    box-shadow: 0 0 15px #1C232D;
+}
+
+.wrapper h1 {
+    margin-bottom: 10px;
+    font-size: 36px;
+}
+
+.wrapper p {
+    margin-bottom: 50px;
+    font-size: 26px;
+    font-weight: 200;
+}
+
+.app-body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.section-left, .section-right {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.app-body input {
+    margin-bottom: 10px;
+    width: 100%;
+    font-size: 60px;
+}
+
+.app-body input, .app-body select {
+    color: #fff;
+    border: none;
+    background: none;
+    text-align: center;
+}
+
+.app-body select {
+    padding: 10px 20px;
+    font-size: 36px;
+    cursor: pointer;
+}
+
+.app-body input:focus, .app-body select:focus {
+    outline: none;
+    color: rgb(67,171,255);
+}
+
+.app-body option {
+    color: #333;
+}
+
+.swap {
+    align-self: flex-end;
+    margin: 5px;
+    padding: 5px 50px;
+    background-image: linear-gradient(45deg, #2b89e7, #11e763);
+    font-size: 30px;
+    border: none;
+    border-radius: 25px;
+    color: #fff;
+    cursor: pointer;
+}
+
+.swap:focus {
+    outline: none;
+    background-image: linear-gradient(45deg, #317fcc, #1fc06a);
+}
+
+.wrapper .rate-info {
+    margin-top: 30px;
+    margin-bottom: 0;
+}
