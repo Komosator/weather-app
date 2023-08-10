@@ -67,9 +67,10 @@ const getWeather = (apiUrl, town) => {
 	axios
 		.get(apiUrl)
 		.then((res) => {
-			console.log(res.data);
+			// console.log(res.data);
 			warning.textContent = '';
 			infoDetails.classList.remove('hidden');
+
 			const temp = Math.round(res.data.main.temp) + ' [℃]';
 			const hum = Math.round(res.data.main.humidity) + ' [%]';
 			const pres = Math.round(res.data.main.humidity) + ' [hPa]';
@@ -81,19 +82,12 @@ const getWeather = (apiUrl, town) => {
 			const windDirectionArrow = Math.round(res.data.wind.deg) + 'deg';
 			let arrowDir = `translate(-50%, -50%) rotate(${windDirectionArrow})`;
 
-			cityName.textContent = town;
-			weather.textContent = status;
-			temperature.textContent = temp;
-			pressure.textContent = pres;
-			humidity.textContent = hum;
-			windSpeed.textContent = wSpeed;
-			windDirection.textContent = wDir;
-			windArrow.style.transform = arrowDir;
-
 			if (wSpeed !== '0 [km/h]') {
 				windDepiction.classList.remove('hidden');
 				windAnimation(wDirBasicValue);
 			}
+
+			updateWeatherData(town, status, temp, pres, hum, wSpeed, wDir, arrowDir);
 			showStatusImage(statusId);
 		})
 		.catch(
@@ -101,6 +95,26 @@ const getWeather = (apiUrl, town) => {
 				(warning.textContent =
 					'Something went wrong, please let me know about the problem!')
 		);
+};
+
+const updateWeatherData = (
+	town,
+	status,
+	temp,
+	pres,
+	hum,
+	wSpeed,
+	wDir,
+	arrowDir
+) => {
+	cityName.textContent = town;
+	weather.textContent = status;
+	temperature.textContent = temp;
+	pressure.textContent = pres;
+	humidity.textContent = hum;
+	windSpeed.textContent = wSpeed;
+	windDirection.textContent = wDir;
+	windArrow.style.transform = arrowDir;
 };
 
 const showStatusImage = (statusId) => {
