@@ -22,7 +22,7 @@ const API_UNITS = '&units=metric';
 const API_GEO_LINK = 'http://api.openweathermap.org/geo/1.0/direct?q=';
 const API_GEO_LIMIT = '&limit=1';
 
-import { API_KEY as apiKey } from './api_key.js';
+import { API_KEY as apiKey } from './apikey.js';
 
 const showCurrentYear = () => {
 	const currentYear = new Date().getFullYear();
